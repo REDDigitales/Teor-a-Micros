@@ -25,9 +25,8 @@ module Fetch(
     input PC_reg_enable,
     input mux_PC_flag,              // 0 = PC+4  , 1= jump_address
     input Readmem,                  // bandera de control: lectura de memoria
-    input enableMem,                // bandera de control: activa la memoria
     input [31:0] jump_address,
-    output wire [31:0] Instrucction
+    output reg [31:0] Instrucction
     );
     
     parameter four = 3'd4;
@@ -60,13 +59,10 @@ module Fetch(
     /////////////////////////////////
     
     Memoria Memoria_unit(
-    .clk(clk),
-    .enable(enableMem),
-    .Readmem(Readmem),
+    .clk(clk), 
+    .ReadMem(),
     .Dir_Instru(direc_wire),
-    //.Dir_Mem(),
     .Dato_Instru(Instrucction)
-    //.Dato_Mem()
     );
     
     
