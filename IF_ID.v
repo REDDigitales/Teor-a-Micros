@@ -48,10 +48,6 @@ module IF_ID(
         endcase
     end
     
-    
-    
-    
-    
-    
+   
     
 endmodule
