@@ -36,7 +36,7 @@ module mem(
          r3 = 32'h0;
      end
 
-    always@(clk)
+    always@(posedge clk)
     begin
         case (Dir_Mem)
         
