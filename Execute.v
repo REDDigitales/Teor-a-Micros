@@ -25,22 +25,21 @@ module Execute(
     input [31:0] data_B,
     input [31:0] SignExtImm,
     input [4:0] shamt,
-    input mux_2_flag,
+    input [1:0] mux_2_flag,
     input [3:0] Alu_function,
-    
-    output reg [31:0] ALU
+    output [31:0] ALU
     );
     
     reg [31:0] data_A_reg;
     reg [31:0] data_B_reg;
-    reg zero_flag;
+    wire zero_flag;
     
     always@*
     begin
     case(mux_2_flag)
-    
         2'd0: data_B_reg = data_B;
         2'd1: data_B_reg = SignExtImm;
+        2'd2: data_B_reg = {27'b0,shamt};
         default: data_B_reg = shamt;
        
     endcase
@@ -49,7 +48,7 @@ module Execute(
     Alu Alu_unit(
     .DataA(data_A), 
     .DataB(data_B_reg),
-    .Alu_fun(Alu_function),          // Señal de la nube de control
+    .Alu_fun(Alu_function),          // Seï¿½al de la nube de control
     .Resultado(ALU),
     .Zero(zero_flag)
     );

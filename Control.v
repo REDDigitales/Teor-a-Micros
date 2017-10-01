@@ -1,22 +1,22 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
+// Company:
+// Engineer:
+//
 // Create Date: 09/25/2017 10:47:02 PM
-// Design Name: 
+// Design Name:
 // Module Name: Control
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
+// Project Name:
+// Target Devices:
+// Tool Versions:
+// Description:
+//
+// Dependencies:
+//
 // Revision:
 // Revision 0.01 - File Created
 // Additional Comments:
-// 
+//
 //////////////////////////////////////////////////////////////////////////////////
 
 
@@ -141,7 +141,7 @@ begin
            exe_mem_enable = 0;
            mem_wr_enable = 0;
        end
-       
+
        6'h23:                                //opcode de un lw
        begin
            Sel_pc_mux = 0;
@@ -267,6 +267,24 @@ begin
            exe_mem_enable = 0;
            mem_wr_enable = 0;
            Sel_Alu = 4'h1;
+       end
+       6'h33:
+       begin
+           Sel_pc_mux = 0;
+           Sel_pc_reg = 0;
+           Mux_1 = 0;
+           Mux_2 = 0;
+           Mux_3 = 0;
+           Mem_inst_rd = 0;
+           Mem_RD = 1;
+           Mem_WR = 1;
+           banco_rd = 1;
+           banco_wr = 1;
+           if_id_enable = 0;
+           id_exe_enable = 0;
+           exe_mem_enable = 0;
+           mem_wr_enable = 0;
+           Sel_Alu = 4'h5;
        end
        default:
        begin

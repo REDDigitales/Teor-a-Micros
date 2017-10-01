@@ -28,7 +28,7 @@ module IF_ID(
 
     output reg [31:0]PC_4_out,
     output reg [31:0] Instrucction_out,
-    output opcode_out
+    output [5:0]opcode_out
     );
     
     wire [5:0] opcode;

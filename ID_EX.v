@@ -1,22 +1,22 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
+// Company:
+// Engineer:
+//
 // Create Date: 09/25/2017 07:34:16 PM
-// Design Name: 
+// Design Name:
 // Module Name: ID_EX
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
+// Project Name:
+// Target Devices:
+// Tool Versions:
+// Description:
+//
+// Dependencies:
+//
 // Revision:
 // Revision 0.01 - File Created
 // Additional Comments:
-// 
+//
 //////////////////////////////////////////////////////////////////////////////////
 
 
@@ -29,19 +29,37 @@ module ID_EX(
     input [4:0] rd,
     input [4:0] rt,
     input [31:0] SignExtImm,
-    
+
+    input [3:0] alu_function,
+    input [1:0] Mux_1_flag,
+    input Mux_2_flag,
+    input Mux_3_flag,
+    input flag_mem_rd,
+    input flag_mem_wr,
+    input flag_banco_wr,
+
+
     output reg [31:0] dato_A_out,
     output reg [31:0] dato_B_out,
     output reg [4:0] shampt_out,
     output reg [4:0] rd_out,
     output reg [4:0] rt_out,
-    output reg [31:0] SignExtImm_out
+    output reg [31:0] SignExtImm_out,
+
+    output reg [3:0] alu_function_out,
+    output reg [1:0] Mux_1_flag_out,
+    output reg Mux_2_flag_out,
+    output reg Mux_3_flag_out,
+    output reg flag_mem_wr_out,
+    output reg flag_mem_rd_out,
+    output reg flag_banco_wr_out
+
     );
-    
+
      always@(negedge clk)
      begin
         case(ID_EX_enable)
-        
+
         1'b0:
         begin
         dato_A_out <= dato_A;
@@ -49,8 +67,16 @@ module ID_EX(
         shampt_out <= shampt;
         rd_out <= rd;
         rt_out <= rt;
+        SignExtImm_out <= SignExtImm;
+        alu_function_out <= alu_function;
+        Mux_1_flag_out <= Mux_1_flag;
+        Mux_2_flag_out <= Mux_2_flag;
+        Mux_3_flag_out <= Mux_3_flag;
+        flag_mem_wr_out <= flag_mem_wr;
+        flag_mem_rd_out <= flag_mem_rd;
+        flag_banco_wr_out <= flag_banco_wr;
         end
-        
+
         default:
         begin
         dato_A_out <= 32'hZZZZZZZZ;
@@ -58,8 +84,15 @@ module ID_EX(
         shampt_out <=  32'hZZZZZZZZ;
         rd_out <= 32'hZZZZZZZZ;
         rt_out <= 32'hZZZZZZZZ;
+        SignExtImm_out <= 32'hZZZZZZZZ;
+        alu_function_out <= 4'hz;;
+        Mux_1_flag_out <= 1'bz;
+        Mux_2_flag_out <= 1'bz;
+        Mux_3_flag_out <= 1'bz;
+        flag_mem_wr_out <= 1'bz;
+        flag_banco_wr_out <= 1'bz;
         end
-        
+
         endcase
      end
 endmodule
