@@ -23,6 +23,8 @@
 module ID_EX(
     input clk,
     input ID_EX_enable,
+    input EX_MEM_enable,
+    input MEM_WB_enable,
     input [31:0] dato_A,
     input [31:0] dato_B,
     input [4:0] shampt,
@@ -38,7 +40,8 @@ module ID_EX(
     input flag_mem_wr,
     input flag_banco_wr,
 
-
+    output reg EX_MEM_enable_out,
+    output reg MEM_WB_enable_out,
     output reg [31:0] dato_A_out,
     output reg [31:0] dato_B_out,
     output reg [4:0] shampt_out,
@@ -56,7 +59,7 @@ module ID_EX(
 
     );
 
-     always@(negedge clk)
+     always@(posedge clk)
      begin
         case(ID_EX_enable)
 
@@ -75,6 +78,8 @@ module ID_EX(
         flag_mem_wr_out <= flag_mem_wr;
         flag_mem_rd_out <= flag_mem_rd;
         flag_banco_wr_out <= flag_banco_wr;
+        EX_MEM_enable_out <= EX_MEM_enable;
+        MEM_WB_enable_out <= MEM_WB_enable;
         end
 
         default:
@@ -91,6 +96,8 @@ module ID_EX(
         Mux_3_flag_out <= 1'bz;
         flag_mem_wr_out <= 1'bz;
         flag_banco_wr_out <= 1'bz;
+        EX_MEM_enable_out <= 1'bz;
+        MEM_WB_enable_out <= 1'bz;
         end
 
         endcase

@@ -34,15 +34,17 @@ module Decode(
     input [4:0] write_reg,
     input [31:0] write_data,
     output [31:0] dato_A,
-    output [31:0] dato_B,
-    output [31:0] t0_wire, t1_wire, t2_wire, s0_wire, s1_wire, s2_wire
+    output [31:0] dato_B
+    // output [31:0] at_reg,v0_reg,v1_reg,a0_reg,a1_reg,a2_reg,a3_reg, t0_reg,t1_reg,t2_reg,t3_reg,
+    // t4_reg,t5_reg,t6_reg,t7_reg,t8_reg,t9_reg,s0_reg, s1_reg,s2_reg,s3_reg,s4_reg,s5_reg,s6_reg,
+    // s7_reg,k0_reg,k1_reg,gp_reg,sp_reg,fp_reg,ra_reg
     );
 
     wire [5:0] opcode;
     wire [4:0] rs;
     wire [4:0] rd;
     wire [4:0] rt;
-    wire [10:6] shamt;
+    wire [4:0] shamt;
 
     assign opcode = address [31:26];
     assign rs = address [25:21];
@@ -54,9 +56,9 @@ module Decode(
     assign rt_out = rt;
     assign shamt_out = shamt;
 
-    assign SignExtImm = {16'd0,address[15:0]};
+    //assign SignExtImm = {16'd0,address[15:0]};
     assign JumpAddr = {PC_4 [31:28], address [25:0],2'b0};
-    assign SignExtImm = {16'd0,address[15:0]};
+    assign SignExtImm = address[15] ? {16'hffff,address[15:0]} :{16'h0,address[15:0]};
 /*
     always@*
     begin
@@ -79,13 +81,38 @@ module Decode(
        .rs(rs),
        .rt(rt),
        .dato_A(dato_A),
-       .dato_B(dato_B),
-       .t0_reg(t0_wire),
-       .t1_reg(t1_wire),
-       .t2_reg(t2_wire),
-       .s0_reg(s0_wire),
-       .s1_reg(s1_wire),
-       .s2_reg(s2_wire)
+       .dato_B(dato_B)
+      //  .at_reg(at_reg),
+      //  .v0_reg(v0_reg),
+      //  .v1_reg(v1_reg),
+      //  .a0_reg(a0_reg),
+      //  .a1_reg(a1_reg),
+      //  .a2_reg(a2_reg),
+      //  .a3_reg(a3_reg),
+      //  .t0_reg(t0_reg),
+      //  .t1_reg(t1_reg),
+      //  .t2_reg(t2_reg),
+      //  .t3_reg(t3_reg),
+      //  .t4_reg(t4_reg),
+      //  .t5_reg(t5_reg),
+      //  .t6_reg(t6_reg),
+      //  .t7_reg(t7_reg),
+      //  .t8_reg(t8_reg),
+      //  .t9_reg(t9_reg),
+      //  .s0_reg(s0_reg),
+      //  .s1_reg(s1_reg),
+      //  .s2_reg(s2_reg),
+      //  .s3_reg(s3_reg),
+      //  .s4_reg(s4_reg),
+      //  .s5_reg(s5_reg),
+      //  .s6_reg(s6_reg),
+      //  .s7_reg(s7_reg),
+      //  .k0_reg(k0_reg),
+      //  .k1_reg(k1_reg),
+      //  .gp_reg(gp_reg),
+      //  .sp_reg(sp_reg),
+      //  .fp_reg(fp_reg),
+      //  .ra_reg(ra_reg)
     );
 
 

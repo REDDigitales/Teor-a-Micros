@@ -27,12 +27,15 @@ module Fetch(
     input Readmem,                  // bandera de control: lectura de memoria
     input [31:0] jump_address,
     output [31:0] PC_sum,
-    output [31:0] Instrucction
+    output [31:0] Instrucction,
+
+    output reg [31:0] PC_reg
+
     );
 
-    parameter four = 3'd4;
+    parameter four = 3'b100;
 
-    reg [31:0] PC_reg;
+ //   reg [31:0] PC_reg_temp;
     wire [31:0] PC_mux_wire;
     wire [31:0] direc_wire;
 
@@ -49,17 +52,24 @@ module Fetch(
 
     /////////////////////////////////
     // MUX_PC
-    assign PC_mux_wire = mux_PC_flag ? PC_sum : jump_address;
+    assign PC_mux_wire = mux_PC_flag ? jump_address : PC_sum;
+
+
 
     /////////////////////////////////
-    
+
     // Registro PC
-    always @(negedge clk)
+    always @(posedge clk)
     begin
     if (~PC_reg_enable)
         PC_reg <= PC_mux_wire;
-
     end
+
+//    always @(negedge clk)
+//    begin
+//        PC_reg <= PC_reg_temp;
+//    end
+
 
     Memoria Memoria_unit(
     .clk(clk),

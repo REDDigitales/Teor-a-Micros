@@ -40,19 +40,19 @@ module MEM_WB(
     output reg banco_flag_wr_MOUT
     );
 
-    always@(negedge clk)
+    always@(posedge clk)
     begin
        case (MEM_WB_enable)
 
         1'b0:
           begin
-          dato_mem_out <= dato_mem;
-          rd_out <= rd;
-          rt_out <= rt;
-          ALU_out <= ALU;
-          Mux_flag_2_MOUT <= Mux_flag_2_M;
-          Mux_flag_3_MOUT <= Mux_flag_3_M;
-          banco_flag_wr_MOUT <= banco_flag_wr_M;
+              dato_mem_out <= dato_mem;
+              rd_out <= rd;
+              rt_out <= rt;
+              ALU_out <= ALU;
+              Mux_flag_2_MOUT <= Mux_flag_2_M;
+              Mux_flag_3_MOUT <= Mux_flag_3_M;
+              banco_flag_wr_MOUT <= banco_flag_wr_M;
           end
 
         default: begin

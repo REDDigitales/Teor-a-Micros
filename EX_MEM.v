@@ -23,6 +23,7 @@
 module EX_MEM(
     input clk,
     input EX_MEM_enable,
+    input MEM_WB_enable,
     input [31:0] ALU,
     input [4:0] rd,
     input [4:0] rt,
@@ -32,7 +33,7 @@ module EX_MEM(
     input mem_flag_rd,
     input mem_flag_wr,
     input banco_flag_wr,
-
+    output reg MEM_WB_enable_out,
     output reg [31:0] ALU_out,
     output reg[4:0] rd_out,
     output reg [4:0] rt_out,
@@ -44,7 +45,7 @@ module EX_MEM(
     output reg banco_flag_wr_MEM
     );
 
-    always@(negedge clk)
+    always@(posedge clk)
     begin
         case(EX_MEM_enable)
         1'b0:
@@ -58,6 +59,7 @@ module EX_MEM(
             mem_flag_rd_MEM <= mem_flag_rd;
             mem_flag_wr_MEM <= mem_flag_wr;
             banco_flag_wr_MEM <= banco_flag_wr;
+            MEM_WB_enable_out <= MEM_WB_enable;
             end
         default:
             begin
@@ -70,6 +72,7 @@ module EX_MEM(
             mem_flag_rd_MEM <= 1'bz;
             mem_flag_wr_MEM <= 1'bz;
             banco_flag_wr_MEM <= 1'bz;
+            MEM_WB_enable_out <= 1'bz;
             end
         endcase
      end

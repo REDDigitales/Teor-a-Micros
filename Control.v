@@ -34,21 +34,21 @@ initial begin
    Sel_pc_mux = 0;
    Sel_pc_reg = 0;
    Mux_1 = 0;
-   Mux_2 = 0;
+   Mux_2 = 1;
    Mux_3 = 0;
    Mem_inst_rd = 0;
    Mem_RD = 0;
    Mem_WR = 0;
-   banco_rd = 0;
-   banco_wr = 0;
+   banco_rd = 1;
+   banco_wr = 1;
    if_id_enable = 0;
-   id_exe_enable = 0;
-   exe_mem_enable = 0;
-   mem_wr_enable = 0;
+   id_exe_enable = 1;
+   exe_mem_enable = 1;
+   mem_wr_enable = 1;
    Sel_Alu = 4'h0;
 end
 
-always @(posedge clk)
+always @(*)
 begin
 
    case(OpCode)
@@ -56,7 +56,7 @@ begin
        begin
            Sel_pc_mux = 0;
            Sel_pc_reg = 0;
-           Mux_1 = 0;                        //selecion de mux de entrada para el dato B de la alu
+           Mux_1 = 0;                        //selecion de mux de entrada para el dato B de la alu y el shamp
            Mux_2 = 1;                        //selecion de mux dato de la memoria 0 o operacion 1
            Mux_3 = 0;                        //selecion de mux de direccion de rd 0 o rt 1
            Mem_inst_rd = 0;
@@ -81,7 +81,7 @@ begin
            Mem_RD = 1;
            Mem_WR = 1;
            banco_rd = 0;
-           banco_wr = 1;
+           banco_wr = 0;
            if_id_enable = 0;
            id_exe_enable = 0;
            exe_mem_enable = 0;
@@ -124,8 +124,8 @@ begin
            mem_wr_enable = 0;
            Sel_Alu = 4'h8;
        end
-       6'h03:                                //opcode de un j
-       begin                                 //Se usa un opcode de de 3 porque se repite para el slr
+       6'h02:                                //opcode de un j
+       begin                                 //Se usa un opcode de 3 porque se repite para el slr
            Sel_pc_mux = 1;                   //usando el de 0x3 no habra errores
            Sel_pc_reg = 0;
            Mux_1 = 0;
@@ -134,8 +134,8 @@ begin
            Mem_inst_rd = 0;
            Mem_RD = 1;
            Mem_WR = 1;
-           banco_rd = 0;
-           banco_wr = 0;
+           banco_rd = 1;
+           banco_wr = 1;
            if_id_enable = 0;
            id_exe_enable = 1;
            exe_mem_enable = 0;
@@ -147,7 +147,7 @@ begin
            Sel_pc_mux = 0;
            Sel_pc_reg = 0;
            Mux_1 = 1;
-           Mux_2 = 1;
+           Mux_2 = 0;
            Mux_3 = 1;
            Mem_inst_rd = 0;
            Mem_RD = 0;
@@ -232,7 +232,7 @@ begin
            mem_wr_enable = 0;
            Sel_Alu = 4'h2;
        end
-       6'h02:                                //opcode de un slr
+       6'h03:                                //opcode de un slr
        begin
            Sel_pc_mux = 0;
            Sel_pc_reg = 0;
@@ -268,7 +268,7 @@ begin
            mem_wr_enable = 0;
            Sel_Alu = 4'h1;
        end
-       6'h33:
+       6'h0e:                                     //nop
        begin
            Sel_pc_mux = 0;
            Sel_pc_reg = 0;
@@ -286,7 +286,7 @@ begin
            mem_wr_enable = 0;
            Sel_Alu = 4'h5;
        end
-       default:
+       6'h29:                                     //subu
        begin
            Sel_pc_mux = 0;
            Sel_pc_reg = 0;
@@ -296,12 +296,50 @@ begin
            Mem_inst_rd = 0;
            Mem_RD = 1;
            Mem_WR = 1;
-           banco_rd = 1;
-           banco_wr = 1;
+           banco_rd = 0;
+           banco_wr = 0;
            if_id_enable = 0;
            id_exe_enable = 0;
            exe_mem_enable = 0;
            mem_wr_enable = 0;
+           Sel_Alu = 4'h1;
+       end
+
+       6'h21:                                //opcode de un addu
+       begin
+           Sel_pc_mux = 0;
+           Sel_pc_reg = 0;
+           Mux_1 = 0;                        //selecion de mux de entrada para el dato B de la alu
+           Mux_2 = 1;                        //selecion de mux dato de la memoria 0 o operacion 1
+           Mux_3 = 0;                        //selecion de mux de direccion de rd 0 o rt 1
+           Mem_inst_rd = 0;
+           Mem_RD = 1;
+           Mem_WR = 1;
+           banco_rd = 0;
+           banco_wr = 0;
+           if_id_enable = 0;
+           id_exe_enable = 0;
+           exe_mem_enable = 0;
+           mem_wr_enable = 0;
+           Sel_Alu = 4'h0;
+       end
+
+       default:
+       begin
+           Sel_pc_mux = 0;
+           Sel_pc_reg = 1;
+           Mux_1 = 0;
+           Mux_2 = 1;
+           Mux_3 = 0;
+           Mem_inst_rd = 1;
+           Mem_RD = 1;
+           Mem_WR = 1;
+           banco_rd = 1;
+           banco_wr = 1;
+           if_id_enable = 1;
+           id_exe_enable = 1;
+           exe_mem_enable = 1;
+           mem_wr_enable = 1;
            Sel_Alu = 4'h5;
        end
    endcase
