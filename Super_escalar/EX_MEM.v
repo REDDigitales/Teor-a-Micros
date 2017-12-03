@@ -1,26 +1,27 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company:
-// Engineer:
-//
-// Create Date: 09/25/2017 07:34:16 PM
-// Design Name:
-// Module Name: ID_EX
-// Project Name:
-// Target Devices:
-// Tool Versions:
-// Description:
-//
-// Dependencies:
-//
+// Company: 
+// Engineer: 
+// 
+// Create Date: 12/02/2017 11:09:57 PM
+// Design Name: 
+// Module Name: EX_MEM
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
 // Revision:
 // Revision 0.01 - File Created
 // Additional Comments:
-//
+// 
 //////////////////////////////////////////////////////////////////////////////////
 
 
 module EX_MEM(
+
     input clk,
     input EX_MEM_enable,
     input MEM_WB_enable,
@@ -123,3 +124,4 @@ module EX_MEM(
      end
 
 endmodule
+

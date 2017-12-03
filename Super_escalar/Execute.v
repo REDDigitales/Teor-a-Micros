@@ -1,26 +1,27 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company:
-// Engineer:
-//
-// Create Date: 09/25/2017 09:59:49 PM
-// Design Name:
+// Company: 
+// Engineer: 
+// 
+// Create Date: 12/02/2017 10:49:12 PM
+// Design Name: 
 // Module Name: Execute
-// Project Name:
-// Target Devices:
-// Tool Versions:
-// Description:
-//
-// Dependencies:
-//
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
 // Revision:
 // Revision 0.01 - File Created
 // Additional Comments:
-//
+// 
 //////////////////////////////////////////////////////////////////////////////////
 
 
 module Execute(
+
     input [31:0] data_A_1,
     input [31:0] data_B_1,
     input [31:0] SignExtImm_1,
@@ -55,7 +56,7 @@ module Execute(
         default: data_B_reg_1 = 32'hzzzzzz;
     endcase
     end
-/////////////////////////////////////////////
+////////////////////////////////////////////////////
     always@*
     begin
     case(mux_1_flag_2)
@@ -69,7 +70,7 @@ module Execute(
     Alu Alu_unit_1(
     .DataA(data_A_1),
     .DataB(data_B_reg_1),
-    .Alu_fun(Alu_function_1),          // Se�al de la nube de control
+    .Alu_fun(Alu_function_1),          // Se?al de la nube de control
     .Resultado(ALU_1),
     .Zero(zero_flag_1)
     );
@@ -77,7 +78,7 @@ module Execute(
     Alu Alu_unit_2(
     .DataA(data_A_2),
     .DataB(data_B_reg_2),
-    .Alu_fun(Alu_function_2),          // Se�al de la nube de control
+    .Alu_fun(Alu_function_2),          // Se?al de la nube de control
     .Resultado(ALU_2),
     .Zero(zero_flag_2)
     );
