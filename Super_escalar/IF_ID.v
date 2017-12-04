@@ -26,11 +26,11 @@ module IF_ID(
     
     input [31:0] PC_4,
     input [31:0] Instrucction,
-    input [31:0] PC_8,
-    input [31:0] Instrucction_2,
-
     output [31:0] PC_4_out,
     output [31:0] Instrucction_out,
+    /////////////////////////////////////
+    input [31:0] PC_8,
+    input [31:0] Instrucction_2,
     output [31:0] PC_8_out,
     output [31:0] Instrucction_out_2
     

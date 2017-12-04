@@ -1,29 +1,29 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company:
-// Engineer:
-//
+// Company: 
+// Engineer: 
+// 
 // Create Date: 12/03/2017 02:09:58 PM
-// Design Name:
+// Design Name: 
 // Module Name: Testbench
-// Project Name:
-// Target Devices:
-// Tool Versions:
-// Description:
-//
-// Dependencies:
-//
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
 // Revision:
 // Revision 0.01 - File Created
 // Additional Comments:
-//
+// 
 //////////////////////////////////////////////////////////////////////////////////
 
 
 module Testbench(
 
     );
-
+    
 reg clk;
 initial begin
 clk = 0;
@@ -37,11 +37,11 @@ always
 wire PC_reg_enable_1_wire;
 wire mux_PC_flag_1_wire;              // 0 = PC+4  , 1= jump_address
 wire Readmem_1_wire;                  // bandera de control: lectura de memoria
-wire  jump_address_1_wire;
+wire [31:0] jump_address_1_wire;
 wire [31:0] PC_sum_1_wire;
 wire [31:0] Instrucction_1_wire;
 
-wire [31:0] PC_reg_1_wire;            // SeÃ±al instruccion actual
+wire [31:0] PC_reg_1_wire;            // Señal instruccion actual
 
 wire PC_reg_enable_2_wire;
 wire mux_PC_flag_2_wire;              // 0 = PC+8  ; 1= jump_address
@@ -64,14 +64,14 @@ wire [31:0] Instrucction_out_2_wire;
 
 /////////////////////////////////  decode
 wire banco_rd_1_wire;
-wire banco_wr_1_wire;
-wire [4:0] write_reg_1_wire;
-wire [31:0] write_data_1_wire;
+//wire banco_wr_1_wire;
+//wire [4:0] write_reg_1_wire;
+//wire [31:0] write_data_1_wire;
 
 wire banco_rd_2_wire;
-wire banco_wr_2_wire;
-wire [4:0] write_reg_2_wire;
-wire [31:0] write_data_2_wire;
+//wire banco_wr_2_wire;
+//wire [4:0] write_reg_2_wire;
+// [31:0] write_data_2_wire;
 
 wire [31:0] SignExtImm_1_wire;
 wire [4:0] rd_out_1_wire, rt_out_1_wire, shamt_out_1_wire;
@@ -206,7 +206,7 @@ wire [4:0] write_reg_2;
     .PC_sum_1(PC_sum_1_wire),
     .Instrucction_1(Instrucction_1_wire),
 
-    .PC_reg_1(PC_reg_1_wire),                        // SeÃ±al instruccion actual
+    .PC_reg_1(PC_reg_1_wire),                        // Señal instruccion actual
     //////////////////////////////////////////
 
     .PC_reg_enable_2(PC_reg_enable_2_wire),
@@ -216,7 +216,7 @@ wire [4:0] write_reg_2;
     .PC_sum_2(PC_sum_2_wire),
     .Instrucction_2(Instrucction_2_wire),
 
-    .PC_reg_2(PC_reg_2_wire)                        // SeÃ±al instruccion actual
+    .PC_reg_2(PC_reg_2_wire)                        // Señal instruccion actual
     );
 
     ///////////////////////////////////////////////////////////////////
@@ -498,7 +498,7 @@ wire [4:0] write_reg_2;
     );
 
 
-    Control Control_unit(
+    control Control_unit(
        .clk(clk),
        .OpCode_1(Instrucction_out_wire[31:26]),
        .Sel_pc_mux_1(mux_PC_flag_1_wire),

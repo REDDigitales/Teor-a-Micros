@@ -67,7 +67,7 @@ module Execute(
     endcase
     end
 
-    Alu Alu_unit_1(
+    ALU_1 Alu_unit_1(
     .DataA(data_A_1),
     .DataB(data_B_reg_1),
     .Alu_fun(Alu_function_1),          // Se?al de la nube de control
@@ -75,7 +75,7 @@ module Execute(
     .Zero(zero_flag_1)
     );
 /////////////////////////////////////////////
-    Alu Alu_unit_2(
+    ALU_2 Alu_unit_2(
     .DataA(data_A_2),
     .DataB(data_B_reg_2),
     .Alu_fun(Alu_function_2),          // Se?al de la nube de control

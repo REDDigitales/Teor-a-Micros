@@ -95,7 +95,7 @@ module Decode(
     assign SignExtImm_2 = address_2[15] ? {16'hffff,address_2[15:0]} :{16'h0,address_2[15:0]};
 
 
-    Banco_registros Banco_registros_unit(
+    banco_registros Banco_registros_unit(
        .clk(clk),
        .read_reg_flag_1(read_reg_flag_1),
        .write_reg_flag_1(write_reg_flag_1),

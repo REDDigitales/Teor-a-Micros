@@ -73,7 +73,7 @@ module Fetch(
     assign PC_mux_wire_1 = mux_PC_flag_1 ? jump_address_1 : PC_sum_1;
     /////////////////////////////////
     // MUX_PC (pipeline2)
-    assign PC_mux_wire_2 = mux_PC_flag_2 ? jump_address_2 : PC_sum_2;
+    assign PC_mux_wire_2 = mux_PC_flag_2 ? jump_address_1 + four : PC_sum_2;
 
 
 

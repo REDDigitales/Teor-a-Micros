@@ -1,27 +1,28 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company:
-// Engineer:
-//
-// Create Date: 09/25/2017 09:11:35 PM
-// Design Name:
+// Company: 
+// Engineer: 
+// 
+// Create Date: 12/03/2017 02:08:08 PM
+// Design Name: 
 // Module Name: Write_back
-// Project Name:
-// Target Devices:
-// Tool Versions:
-// Description:
-//
-// Dependencies:
-//
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
 // Revision:
 // Revision 0.01 - File Created
 // Additional Comments:
-//
+// 
 //////////////////////////////////////////////////////////////////////////////////
 
 
 module Write_back(
-    input [31:0] dato_mem_1,
+
+ input [31:0] dato_mem_1,
     input [4:0] rd_1,
     input [4:0] rt_1,
     input [31:0] ALU_1,

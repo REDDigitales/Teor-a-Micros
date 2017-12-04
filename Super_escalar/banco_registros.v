@@ -259,46 +259,6 @@ module banco_registros(
     // Escritura Registro
     
     always @ (negedge clk) begin
-    if (~write_reg_flag_1)
-        begin
-            case(write_reg_1)
-            5'd01: at = write_data_1;
-            5'd02: v0 = write_data_1;
-            5'd03: v1 = write_data_1;
-            5'd04: a0 = write_data_1;
-            5'd05: a1 = write_data_1;
-            5'd06: a2 = write_data_1;
-            5'd07: a3 = write_data_1;
-            5'd08: t0 = write_data_1;
-            5'd09: t1 = write_data_1;
-            5'd10: t2 = write_data_1;
-            5'd11: t3 = write_data_1;
-            5'd12: t4 = write_data_1;
-            5'd13: t5 = write_data_1;
-            5'd14: t6 = write_data_1;
-            5'd15: t7 = write_data_1;
-            5'd16: s0 = write_data_1;
-            5'd17: s1 = write_data_1;
-            5'd18: s2 = write_data_1;
-            5'd19: s3 = write_data_1;
-            5'd20: s4 = write_data_1;
-            5'd21: s5 = write_data_1;
-            5'd22: s6 = write_data_1;
-            5'd23: s7 = write_data_1;
-            5'd24: t8 = write_data_1;
-            5'd25: t9 = write_data_1;
-            5'd26: k0 = write_data_1;
-            5'd27: k1 = write_data_1;
-            5'd28: gp = write_data_1;
-            5'd29: sp = write_data_1;
-            5'd30: fp = write_data_1;
-            5'd31: ra = write_data_1;
-            endcase
-        end
-    end
-
-
-    always @ (negedge clk) begin
     if (~write_reg_flag_2)
         begin
             case(write_reg_2)
@@ -335,7 +295,44 @@ module banco_registros(
             5'd31: ra = write_data_2;
             endcase
         end
-    end
+        
+      if (~write_reg_flag_1)
+            begin
+                case(write_reg_1)
+                5'd01: at = write_data_1;
+                5'd02: v0 = write_data_1;
+                5'd03: v1 = write_data_1;
+                5'd04: a0 = write_data_1;
+                5'd05: a1 = write_data_1;
+                5'd06: a2 = write_data_1;
+                5'd07: a3 = write_data_1;
+                5'd08: t0 = write_data_1;
+                5'd09: t1 = write_data_1;
+                5'd10: t2 = write_data_1;
+                5'd11: t3 = write_data_1;
+                5'd12: t4 = write_data_1;
+                5'd13: t5 = write_data_1;
+                5'd14: t6 = write_data_1;
+                5'd15: t7 = write_data_1;
+                5'd16: s0 = write_data_1;
+                5'd17: s1 = write_data_1;
+                5'd18: s2 = write_data_1;
+                5'd19: s3 = write_data_1;
+                5'd20: s4 = write_data_1;
+                5'd21: s5 = write_data_1;
+                5'd22: s6 = write_data_1;
+                5'd23: s7 = write_data_1;
+                5'd24: t8 = write_data_1;
+                5'd25: t9 = write_data_1;
+                5'd26: k0 = write_data_1;
+                5'd27: k1 = write_data_1;
+                5'd28: gp = write_data_1;
+                5'd29: sp = write_data_1;
+                5'd30: fp = write_data_1;
+                5'd31: ra = write_data_1;
+                endcase
+            end
+        end
 
   
 endmodule
