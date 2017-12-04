@@ -74,6 +74,8 @@ begin
        6'h20:                                //opcode de un add
        begin
            Sel_pc_mux_1 = 0;
+           Sel_pc_mux_2 = 0;
+           Sel_pc_reg_2 = 0;
            Sel_pc_reg_1 = 0;
            Mux_1_1 = 0;                        //selecion de mux de entrada para el dato B de la alu y el shamp
            Mux_2_1 = 1;                        //selecion de mux dato de la memoria 0 o operacion 1
@@ -92,6 +94,8 @@ begin
        6'h08:                                //opcode de un addi
        begin
            Sel_pc_mux_1 = 0;
+           Sel_pc_mux_2 = 0;
+           Sel_pc_reg_2 = 0;
            Sel_pc_reg_1 = 0;
            Mux_1_1 = 1;
            Mux_2_1 = 1;
@@ -111,6 +115,8 @@ begin
        begin
            Sel_pc_mux_1 = 0;
            Sel_pc_reg_1 = 0;
+           Sel_pc_mux_2 = 0;
+           Sel_pc_reg_2 = 0;
            Mux_1_1 = 0;
            Mux_2_1 = 1;
            Mux_3_1 = 0;
@@ -129,6 +135,8 @@ begin
        begin
            Sel_pc_mux_1 = 0;
            Sel_pc_reg_1 = 0;
+           Sel_pc_mux_2 = 0;
+           Sel_pc_reg_2 = 0;
            Mux_1_1 = 1;
            Mux_2_1 = 1;
            Mux_3_1 = 1;
@@ -145,8 +153,10 @@ begin
        end
        6'h02:                                //opcode de un j
        begin                                 //Se usa un opcode de 3 porque se repite para el slr
-           Sel_pc_mux_1 = 1;                   //usando el de 0x3 no habra errores
+           Sel_pc_mux_1 = 1;                  //usando el de 0x3 no habra errores
            Sel_pc_reg_1 = 0;
+           Sel_pc_mux_2 = 1;
+           Sel_pc_reg_2 = 0;
            Mux_1_1 = 0;
            Mux_2_1 = 1;
            Mux_3_1 = 0;
@@ -166,6 +176,8 @@ begin
        begin
            Sel_pc_mux_1 = 0;
            Sel_pc_reg_1 = 0;
+           Sel_pc_mux_2 = 0;
+           Sel_pc_reg_2 = 0;
            Mux_1_1 = 1;
            Mux_2_1 = 0;
            Mux_3_1 = 1;
@@ -184,6 +196,8 @@ begin
        begin
            Sel_pc_mux_1 = 0;
            Sel_pc_reg_1 = 0;
+           Sel_pc_mux_2 = 0;
+           Sel_pc_reg_2 = 0;
            Mux_1_1 = 0;
            Mux_2_1 = 1;
            Mux_3_1 = 0;
@@ -202,6 +216,8 @@ begin
        begin
            Sel_pc_mux_1 = 0;
            Sel_pc_reg_1 = 0;
+           Sel_pc_mux_2 = 0;
+           Sel_pc_reg_2 = 0;
            Mux_1_1 = 0;
            Mux_2_1 = 1;
            Mux_3_1 = 0;
@@ -220,6 +236,8 @@ begin
        begin
            Sel_pc_mux_1 = 0;
            Sel_pc_reg_1 = 0;
+           Sel_pc_mux_2 = 0;
+           Sel_pc_reg_2 = 0;
            Mux_1_1 = 1;
            Mux_2_1 = 1;
            Mux_3_1 = 1;
@@ -238,6 +256,8 @@ begin
        begin
            Sel_pc_mux_1 = 0;
            Sel_pc_reg_1 = 0;
+           Sel_pc_mux_2 = 0;
+           Sel_pc_reg_2 = 0;
            Mux_1_1 = 2'h2;
            Mux_2_1 = 1;
            Mux_3_1 = 0;
@@ -256,6 +276,8 @@ begin
        begin
            Sel_pc_mux_1 = 0;
            Sel_pc_reg_1 = 0;
+           Sel_pc_mux_2 = 0;
+           Sel_pc_reg_2 = 0;
            Mux_1_1 = 2'h2;
            Mux_2_1 = 1;
            Mux_3_1 = 0;
@@ -274,6 +296,8 @@ begin
        begin
            Sel_pc_mux_1 = 0;
            Sel_pc_reg_1 = 0;
+           Sel_pc_mux_2 = 0;
+           Sel_pc_reg_2 = 0;
            Mux_1_1 = 0;
            Mux_2_1 = 1;
            Mux_3_1 = 0;
@@ -292,6 +316,8 @@ begin
        begin
            Sel_pc_mux_1 = 0;
            Sel_pc_reg_1 = 0;
+           Sel_pc_mux_2 = 0;
+           Sel_pc_reg_2 = 0;
            Mux_1_1 = 0;
            Mux_2_1 = 0;
            Mux_3_1 = 0;
@@ -310,6 +336,8 @@ begin
        begin
            Sel_pc_mux_1 = 0;
            Sel_pc_reg_1 = 0;
+           Sel_pc_mux_2 = 0;
+           Sel_pc_reg_2 = 0;
            Mux_1_1 = 0;
            Mux_2_1 = 1;
            Mux_3_1 = 0;
@@ -329,6 +357,8 @@ begin
        begin
            Sel_pc_mux_1 = 0;
            Sel_pc_reg_1 = 0;
+           Sel_pc_mux_2 = 0;
+           Sel_pc_reg_2 = 0;
            Mux_1_1 = 0;                        //selecion de mux de entrada para el dato B de la alu
            Mux_2_1 = 1;                        //selecion de mux dato de la memoria 0 o operacion 1
            Mux_3_1 = 0;                        //selecion de mux de direccion de rd 0 o rt 1
@@ -348,6 +378,8 @@ begin
        begin
            Sel_pc_mux_1 = 0;
            Sel_pc_reg_1 = 1;
+           Sel_pc_mux_2 = 0;
+           Sel_pc_reg_2 = 1;
            Mux_1_1 = 0;
            Mux_2_1 = 1;
            Mux_3_1 = 0;
@@ -367,8 +399,6 @@ begin
    case(OpCode_2)
        6'h20:                                //opcode de un add
        begin
-           Sel_pc_mux_2 = 0;
-           Sel_pc_reg_2 = 0;
            Mux_1_2 = 0;                        //selecion de mux de entrada para el dato B de la alu y el shamp
            Mux_2_2 = 1;                        //selecion de mux dato de la memoria 0 o operacion 1
            Mux_3_2 = 0;                        //selecion de mux de direccion de rd 0 o rt 1
@@ -381,8 +411,6 @@ begin
        end
        6'h08:                                //opcode de un addi
        begin
-           Sel_pc_mux_2 = 0;
-           Sel_pc_reg_2 = 0;
            Mux_1_2 = 1;
            Mux_2_2 = 1;
            Mux_3_2 = 1;
@@ -395,8 +423,6 @@ begin
        end
        6'h24:                                //opcode de un and
        begin
-           Sel_pc_mux_2 = 0;
-           Sel_pc_reg_2 = 0;
            Mux_1_2 = 0;
            Mux_2_2 = 1;
            Mux_3_2 = 0;
@@ -409,8 +435,6 @@ begin
        end
        6'h0c:                                //opcode de un andi
        begin
-           Sel_pc_mux_2 = 0;
-           Sel_pc_reg_2 = 0;
            Mux_1_2 = 1;
            Mux_2_2 = 1;
            Mux_3_2 = 1;
@@ -422,9 +446,7 @@ begin
            Sel_Alu_2 = 4'h8;
        end
        6'h02:                                //opcode de un j
-       begin                                 //Se usa un opcode de 3 porque se repite para el slr
-           Sel_pc_mux_2 = 1;                   //usando el de 0x3 no habra errores
-           Sel_pc_reg_2 = 0;
+       begin
            Mux_1_2 = 0;
            Mux_2_2 = 1;
            Mux_3_2 = 0;
@@ -438,8 +460,6 @@ begin
 
        6'h23:                                //opcode de un lw
        begin
-           Sel_pc_mux_2 = 0;
-           Sel_pc_reg_2 = 0;
            Mux_1_2 = 1;
            Mux_2_2 = 0;
            Mux_3_2 = 1;
@@ -452,8 +472,6 @@ begin
        end
        6'h27:                                //opcode de un nor
        begin
-           Sel_pc_mux_2 = 0;
-           Sel_pc_reg_2 = 0;
            Mux_1_2 = 0;
            Mux_2_2 = 1;
            Mux_3_2 = 0;
@@ -466,8 +484,6 @@ begin
        end
        6'h25:                                //opcode de un or
        begin
-           Sel_pc_mux_2 = 0;
-           Sel_pc_reg_2 = 0;
            Mux_1_2 = 0;
            Mux_2_2 = 1;
            Mux_3_2 = 0;
@@ -480,8 +496,6 @@ begin
        end
        6'h0d:                                //opcode de un ori
        begin
-           Sel_pc_mux_2 = 0;
-           Sel_pc_reg_2 = 0;
            Mux_1_2 = 1;
            Mux_2_2 = 1;
            Mux_3_2 = 1;
@@ -494,8 +508,6 @@ begin
        end
        6'h00:                                //opcode de un sll
        begin
-           Sel_pc_mux_2 = 0;
-           Sel_pc_reg_2 = 0;
            Mux_1_2 = 2'h2;
            Mux_2_2 = 1;
            Mux_3_2 = 0;
@@ -508,8 +520,6 @@ begin
        end
        6'h03:                                //opcode de un slr
        begin
-           Sel_pc_mux_2 = 0;
-           Sel_pc_reg_2 = 0;
            Mux_1_2 = 2'h2;
            Mux_2_2 = 1;
            Mux_3_2 = 0;
@@ -522,8 +532,6 @@ begin
        end
        6'h22:                                //opcode de un sub
        begin
-           Sel_pc_mux_2 = 0;
-           Sel_pc_reg_2 = 0;
            Mux_1_2 = 0;
            Mux_2_2 = 1;
            Mux_3_2 = 0;
@@ -536,8 +544,6 @@ begin
        end
        6'h0e:                                     //nop
        begin
-           Sel_pc_mux_2 = 0;
-           Sel_pc_reg_2 = 0;
            Mux_1_2 = 0;
            Mux_2_2 = 0;
            Mux_3_2 = 0;
@@ -550,8 +556,6 @@ begin
        end
        6'h29:                                     //subu
        begin
-           Sel_pc_mux_2 = 0;
-           Sel_pc_reg_2 = 0;
            Mux_1_2 = 0;
            Mux_2_2 = 1;
            Mux_3_2 = 0;
@@ -565,8 +569,6 @@ begin
 
        6'h21:                                //opcode de un addu
        begin
-           Sel_pc_mux_2 = 0;
-           Sel_pc_reg_2 = 0;
            Mux_1_2 = 0;                        //selecion de mux de entrada para el dato B de la alu
            Mux_2_2 = 1;                        //selecion de mux dato de la memoria 0 o operacion 1
            Mux_3_2 = 0;                        //selecion de mux de direccion de rd 0 o rt 1
@@ -580,8 +582,6 @@ begin
 
        default:
        begin
-           Sel_pc_mux_2 = 0;
-           Sel_pc_reg_2 = 1;
            Mux_1_2 = 0;
            Mux_2_2 = 1;
            Mux_3_2 = 0;
