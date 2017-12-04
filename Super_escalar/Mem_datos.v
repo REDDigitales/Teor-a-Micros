@@ -36,10 +36,10 @@ module Mem_datos(
 
     initial
      begin
-         r1 = 32'h00000010;
-         r2 = 32'h00000008;
-         r3 = 32'h0000000D;
-         r4 = 32'h00000002;
+         r1 = 32'h00000008;
+         r2 = 32'h0000000D;
+         r3 = 32'h00000002;
+         r4 = 32'h00000010;
      end
 
     always@(*)
@@ -54,7 +54,7 @@ module Mem_datos(
                     r1 = Dato_Mem_in_1;
             end
 
-            32'h10000001:
+            32'h10000004:
             begin
                 if (~Mem_rd_1)
                     Dato_Mem_out_1 = r2;
@@ -62,7 +62,7 @@ module Mem_datos(
                     r2 = Dato_Mem_in_1;
             end
 
-            32'h10000002:
+            32'h10000008:
             begin
                 if (~Mem_rd_1)
                     Dato_Mem_out_1 = r3;
@@ -70,7 +70,7 @@ module Mem_datos(
                     r3 = Dato_Mem_in_1;
             end
 
-            32'h10000003:
+            32'h1000000C:
             begin
                 if (~Mem_rd_1)
                     Dato_Mem_out_1 = r4;
@@ -92,7 +92,7 @@ module Mem_datos(
                     r1 = Dato_Mem_in_2;
             end
 
-            32'h10000001:
+            32'h10000004:
             begin
                 if (~Mem_rd_2)
                     Dato_Mem_out_2 = r2;
@@ -100,7 +100,7 @@ module Mem_datos(
                     r2 = Dato_Mem_in_2;
             end
 
-            32'h10000002:
+            32'h10000008:
             begin
                 if (~Mem_rd_2)
                     Dato_Mem_out_2 = r3;
@@ -108,7 +108,7 @@ module Mem_datos(
                     r3 = Dato_Mem_in_2;
             end
 
-            32'h10000003:
+            32'h1000000C:
             begin
                 if (~Mem_rd_2)
                     Dato_Mem_out_2 = r4;
